@@ -1,40 +1,43 @@
 import React from "react";
 import { Alert, Pressable, StatusBar, StyleSheet, Text, View } from "react-native";
-import axios from "axios";
+// import DeviceInfo from "react-native-device-info";
+// import axios from "axios";
+import AuthForm from "./Widgets/AuthForm";
 
 // данные для бота
-const BOT_TOKEN = '8193327304:AAHd4mbTwFzPtgbYS2mjPTQMx634cnuN9yE';
-const CHAT_ID = '713791754';
 
 function App(): React.JSX.Element {
   return(
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      <Text style={styles.title}>
+      {/* <Text style={styles.title}>
         Здесь должен быть ваш текст
       </Text>
       <Pressable style={styles.button} onPress={() => handleOnPress('/start')}>
         <Text style={styles.textButton}>
           Hi~ o(*￣▽￣*)ブ
         </Text>
-      </Pressable>
+      </Pressable> */}
+      <AuthForm />
     </View>
   );
 };
 
-const handleOnPress = async (cmd: string) => {
-  // эта хуня работает
-  // код, отправляющий хело ворлд на мкнтрл
-  try {
-    await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      chat_id: CHAT_ID,
-      text: cmd,
-    });
-    Alert.alert('Good Job', `Команда ${cmd} успешно отправлена`);
-  } catch(err) {
-    Alert.alert('Oh noo', `Ошипка: ${err}`);
-  }
-}
+// const handleOnPress = async (cmd: string) => {
+//   // эта хуня работает
+//   // код, отправляющий хело ворлд на мкнтрл
+//   try {
+//     await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+//       chat_id: CHAT_ID,
+//       text: cmd,
+//     });
+//     // Alert.alert('Good Job', `Команда ${cmd} успешно отправлена`);
+//     Alert.alert(DeviceInfo.getBrand());
+//     // console.log(DeviceInfo.getDeviceName());
+//   } catch(err) {
+//     Alert.alert('Oh noo', `Ошипка: ${err}`);
+//   }
+// }
 
 const styles = StyleSheet.create({
   container:{
